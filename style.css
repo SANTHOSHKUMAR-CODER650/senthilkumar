@@ -1,0 +1,73 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow: hidden;
+}
+
+.background {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 0;
+    background: linear-gradient(135deg, #ff6a00 0%, #ee0979 50%, #43cea2 100%);
+    animation: gradientMove 8s ease-in-out infinite alternate;
+    filter: blur(8px) brightness(0.8);
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.calculator {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+    border-radius: 20px;
+    padding: 32px 24px;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.18);
+}
+
+#display {
+    width: 100%;
+    height: 48px;
+    font-size: 2rem;
+    text-align: right;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    border: none;
+    padding: 0 12px;
+    background: rgba(255,255,255,0.7);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 60px);
+    gap: 12px;
+}
+
+button {
+    height: 48px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:active {
+    transform: scale(0.97);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+}
+
+button:nth-child(16), button:nth-child(17) {
+    background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+}
